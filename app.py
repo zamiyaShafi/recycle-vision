@@ -11,6 +11,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 # Load the trained model
+
+import os
+
+# Check if the model file exists in the expected path
+model_file_path = 'newrecycle.h5'
+if os.path.exists(model_file_path):
+    print("Model file exists.")
+else:
+    print("Model file does not exist. Please check the path.")
+
 model = load_model('newrecycle.h5')
 
 # Define image dimensions expected by the model
